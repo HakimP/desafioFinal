@@ -15,3 +15,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+$('.delete_empresa').bind('ajax:success', function() {
+  $(this).closest('tr').fadeOut();
+});
