@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre empresa:</strong>
+  <%= @reclamo.nombre_empresa %>
+</p>
+
+<p>
+  <strong>Reclamo:</strong>
+  <%= @reclamo.reclamo %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @reclamo.user %>
+</p>
+
+<%= link_to 'Edit', edit_reclamo_path(@reclamo) %> |
+<%= link_to 'Back', reclamos_path %>

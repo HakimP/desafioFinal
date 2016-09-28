@@ -1,0 +1,90 @@
+<ul class ="nav navbar-nav navbar-right">
+  <% if user_signed_in? %>
+    <li>
+      <a href = "<%= destroy_user_session_path %>" data-method ="delete">
+        Salir
+      </a>
+    </li>
+  <% else %>
+    <li>
+      <a href ="<%= new_user_session_path %>">
+        Login
+      </a>
+    </li>
+    <li>
+      <a href =" <%= new_user_registration_path %>">
+        Registro
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<nav class="navbar navbar-default navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <% if user_signed_in? %>
+          <li class="active">
+            <%= link_to "Consultar Usuario", empresas_path %>
+          </li>
+        <% else %>
+          <li  class="active">
+
+          </li>
+        <% end %>
+
+
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li>
+          <p class="navbar-text">Hello <%= current_user.email %> <%= link_to "Sign out", destroy_user_session_path, :method => 'delete'%></p>
+        </li>
+        <% else %>
+        <li>
+          <p class="navbar-text">Already have an account?</p>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <b>Login</b>
+            <span class="caret"></span>
+          </a>
+          <ul id="login-dp" class="dropdown-menu">
+            <li>
+               <div class="row">
+                  <div class="col-md-12">
+                    Login via
+                    <div class="social-buttons">
+                      <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                      <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                    </div>
+                    or
+                     <!-- acdc -->
+                     <%= render :file => '/devise/sessions/new' %>
+                     <!-- acdc -->
+                  </div>
+                  <div class="bottom text-center">
+                    New here ? <a href="#"><b>Join Us</b></a>
+                  </div>
+               </div>
+            </li>
+          </ul>
+        </li>
+        <%end%>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
